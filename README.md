@@ -24,13 +24,14 @@ Given an input file (CSV or Excel) with a column like `Company Name`, this scrip
 ---
 
 ## 📁 Folder Structure
-
+```
 .
 ├── google_places_enrichment.py # The main script
 ├── .env # Your API key (optional, see setup)
 ├── input/ # Place your input files here
 ├── output/ # Enriched files will be saved here
 └── README.md # This file
+```
 
 ## ⚙️ Requirements
 
