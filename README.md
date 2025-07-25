@@ -2,7 +2,7 @@
 
 **Enrich any list of companies with real-time business details (phone number, website domain, and full address) using the Google Places API.**
 
-This tool supports both `.csv` and `.xlsx` input/output files, and is optimized for use within data, sales, operations, or engineering teams.
+This tool supports both `.csv` and `.xlsx` input/output files, and is optimised for use within data, sales, operations, or engineering teams.
 
 ---
 
@@ -12,12 +12,12 @@ Given an input file (CSV or Excel) with a column like `Company Name`, this scrip
 
 ✅ Find matching companies via Google Places  
 ✅ Fetch:
-- Phone Number  
-- Website Domain  
-- Street Address  
-- City  
-- Zip Code  
-- Country  
+ - Phone Number  
+ - Website Domain  
+ - Street Address  
+ - City  
+ - Zip Code  
+ - Country  
 
 ✅ Add those fields to a new enriched file
 
@@ -39,13 +39,18 @@ Python ≥ 3.7
 
 Install once via:
 
+```
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+```
 
 Or, install manually:
 
+```
 pip install pandas openpyxl requests tqdm
+```
+
 💡 This project uses pandas for Excel support and requests for API calls.
 
 🔑 Google API Key
@@ -58,37 +63,48 @@ Places Details API
 Option A: Use .env file (Recommended)
 Create a .env file at the root with this content:
 
+```
 GOOGLE_API_KEY=your-real-google-api-key-here
+```
 
 Then load it in your terminal:
 
+```
 export $(cat .env | xargs)
+```
 
 To confirm:
 
+```
 echo $GOOGLE_API_KEY
+```
 
 Option B: Pass the API key inline via CLI:
-
+```
 --api-key YOUR_API_KEY
+```
 
 🧪 Example: How to Run
 
 ✅ With CSV input/output:
 
+```
  python google_places_enrichment.py \
   --input input/companies.csv \
   --output output/enriched_companies.csv \
   --region de \
   --context "City,Country"
+```
 
 ✅ With Excel input/output:
 
+```
 python google_places_enrichment.py \
   --input input/companies.xlsx \
   --output output/enriched_companies.xlsx \
   --region de \
   --context "City,Country"
+```
 
 🗂️ Input File Format
 Your input file must contain a column like Company Name.
@@ -145,7 +161,7 @@ Default delay between API calls is 0.1s. Adjust with:
 Be mindful of Google API quota limits.
 
 🧼 Clean Shutdown
-Press Ctrl+C at any time to gracefully stop the script. All rows processed so far will still be saved to output.
+Press Ctrl+C at any time to gracefully stop the script. All rows processed so far will still be saved to the output.
 
 📦 Deployment Notes for Engineering
 - Python dependencies are isolated using venv
@@ -161,4 +177,4 @@ Press Ctrl+C at any time to gracefully stop the script. All rows processed so fa
 ✅ Best Practices
 - Always include City and Country if available — it improves hit rate
 - Use .xlsx for better Excel compatibility unless automation prefers .csv
-- Run large batches overnight if API quota is limited
+- Run large batches overnight if the API quota is limited
