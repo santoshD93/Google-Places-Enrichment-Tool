@@ -38,16 +38,12 @@ Python ≥ 3.7
 
 Install once via:
 
-```bash
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 
 Or, install manually:
 
-bash
-Copy
-Edit
 pip install pandas openpyxl requests tqdm
 💡 This project uses pandas for Excel support and requests for API calls.
 
